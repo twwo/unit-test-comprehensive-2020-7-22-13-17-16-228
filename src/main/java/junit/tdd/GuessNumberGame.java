@@ -60,5 +60,11 @@ public class GuessNumberGame {
         return answer.indexOf(inputNumber) != -1;
     }
 
-
+    public List<String> play(List<String> inputNumberList) {
+        List<String> resultList = new ArrayList<>();
+        for (String inputNumber : inputNumberList) {
+            resultList.add(guess(inputNumber));
+        }
+        return resultList;
+     }
 }
