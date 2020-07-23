@@ -121,6 +121,6 @@ public class GuessNumberGameTest {
         String guessResult = guessNumberGame.guess(inputNumber);
 
         //then
-        assertEquals("Wrong Input，Input again", guessResult);
+        assertEquals("Wrong Input,Input again", guessResult);
     }
 }

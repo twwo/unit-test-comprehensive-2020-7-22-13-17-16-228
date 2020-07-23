@@ -20,6 +20,9 @@ public class GuessNumberGame {
     }
 
     private String calculateAandB(String inputNumber) {
+        if (inputNumber.length() != 4) {
+            return "Wrong Input,Input again";
+        }
         int aCount = 0;
         int bCount = 0;
         char[] inputNumbers = Utils.ConvertStringToCharArray(inputNumber);
