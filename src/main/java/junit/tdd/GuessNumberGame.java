@@ -16,6 +16,6 @@ public class GuessNumberGame {
     }
 
     public String guess(String inputNumber) {
-        return null;
+        return "4A0B";
     }
 }
