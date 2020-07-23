@@ -107,4 +107,20 @@ public class GuessNumberGameTest {
         //then
         assertEquals("0A2B", guessResult);
     }
+
+    @Test
+    void should_return_wrong_message_when_guess_given_12() {
+        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
+        when(answerGenerator.generateAnswer()).thenReturn("1234");
+
+        String inputNumber = "12";
+        String answer = answerGenerator.generateAnswer();
+        GuessNumberGame guessNumberGame = new GuessNumberGame(answer);
+
+        //when
+        String guessResult = guessNumberGame.guess(inputNumber);
+
+        //then
+        assertEquals("Wrong Input，Input again", guessResult);
+    }
 }
