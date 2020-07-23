@@ -1,5 +1,8 @@
 package junit.tdd;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GuessNumberGame {
     private String answer;
 
@@ -44,7 +47,7 @@ public class GuessNumberGame {
             isValid = false;
         } else {
             for (char number : inputNumber.toCharArray()) {
-                if (inputNumber.indexOf(number) == inputNumber.lastIndexOf(number)) {
+                if (inputNumber.indexOf(number) != inputNumber.lastIndexOf(number)) {
                     isValid = false;
                     break;
                 }
@@ -56,5 +59,6 @@ public class GuessNumberGame {
     private boolean isAnswerContains(char inputNumber) {
         return answer.indexOf(inputNumber) != -1;
     }
+
 
 }
