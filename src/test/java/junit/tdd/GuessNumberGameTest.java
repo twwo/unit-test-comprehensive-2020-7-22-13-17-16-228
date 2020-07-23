@@ -90,4 +90,21 @@ public class GuessNumberGameTest {
         //then
         assertEquals("0A4B", guessResult);
     }
+
+    @Test
+    void should_return_0A2B_when_guess_given_4378_and_answer_is_1234() {
+        //given
+        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
+        when(answerGenerator.generateAnswer()).thenReturn("1234");
+
+        String inputNumber = "4378";
+        String answer = answerGenerator.generateAnswer();
+        GuessNumberGame guessNumberGame = new GuessNumberGame(answer);
+
+        //when
+        String guessResult = guessNumberGame.guess(inputNumber);
+
+        //then
+        assertEquals("0A2B", guessResult);
+    }
 }
