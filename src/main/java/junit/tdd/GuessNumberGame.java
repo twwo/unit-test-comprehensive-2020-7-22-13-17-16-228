@@ -20,7 +20,7 @@ public class GuessNumberGame {
     }
 
     private String calculateAandB(String inputNumber) {
-        if (inputNumber.length() != 4) {
+        if (!isValid(inputNumber)) {
             return "Wrong Input,Input again";
         }
         int aCount = 0;
@@ -36,6 +36,21 @@ public class GuessNumberGame {
             }
         }
         return aCount + "A" + bCount + "B";
+    }
+
+    private boolean isValid(String inputNumber) {
+        boolean isValid = true;
+        if (inputNumber.length() != 4) {
+            isValid = false;
+        } else {
+            for (char number : inputNumber.toCharArray()) {
+                if (inputNumber.indexOf(number) == inputNumber.lastIndexOf(number)) {
+                    isValid = false;
+                    break;
+                }
+            }
+        }
+        return isValid;
     }
 
     private boolean isAnswerContains(char inputNumber) {
