@@ -28,8 +28,8 @@ public class GuessNumberGame {
         }
         int aCount = 0;
         int bCount = 0;
-        char[] inputNumbers = Utils.ConvertStringToCharArray(inputNumber);
-        char[] answerNumbers = Utils.ConvertStringToCharArray(answer);
+        char[] inputNumbers = inputNumber.toCharArray();
+        char[] answerNumbers = inputNumber.toCharArray();
         for (int pos = 0; pos < inputNumbers.length; pos++) {
             if (answerNumbers[pos] == inputNumbers[pos]) {
                 aCount++;
