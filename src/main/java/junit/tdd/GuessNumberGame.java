@@ -43,6 +43,9 @@ public class GuessNumberGame {
 
     private boolean isValid(String inputNumber) {
         boolean isValid = true;
+        if (inputNumber.matches("[\\d]")) {
+            isValid = false;
+        }
         if (inputNumber.length() != 4) {
             isValid = false;
         } else {
