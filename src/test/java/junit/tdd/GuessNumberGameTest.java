@@ -1,5 +1,6 @@
 package junit.tdd;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,15 +10,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class GuessNumberGameTest {
+
+    GuessNumberGame guessNumberGame;
+    AnswerGenerator answerGenerator;
+
+    @BeforeEach
+    void setUp() {
+        answerGenerator = mock(AnswerGenerator.class);
+        when(answerGenerator.generateAnswer()).thenReturn("1234");
+        String answer = answerGenerator.generateAnswer();
+        guessNumberGame = new GuessNumberGame(answer);
+    }
+
     @Test
     void should_return_4A0B_when_guess_given_1234_and_answer_is_1234() {
         //given
-        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswer()).thenReturn("1234");
-
         String inputNumber = "1234";
-        String answer = answerGenerator.generateAnswer();
-        GuessNumberGame guessNumberGame = new GuessNumberGame(answer);
 
         //when
         String guessResult = guessNumberGame.guess(inputNumber);
@@ -29,12 +37,7 @@ public class GuessNumberGameTest {
     @Test
     void should_return_1A3B_when_guess_given_1423_and_answer_is_1234() {
         //given
-        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswer()).thenReturn("1234");
-
         String inputNumber = "1423";
-        String answer = answerGenerator.generateAnswer();
-        GuessNumberGame guessNumberGame = new GuessNumberGame(answer);
 
         //when
         String guessResult = guessNumberGame.guess(inputNumber);
@@ -46,12 +49,7 @@ public class GuessNumberGameTest {
     @Test
     void should_return_0A0B_when_guess_given_5678_and_answer_is_1234() {
         //given
-        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswer()).thenReturn("1234");
-
         String inputNumber = "5678";
-        String answer = answerGenerator.generateAnswer();
-        GuessNumberGame guessNumberGame = new GuessNumberGame(answer);
 
         //when
         String guessResult = guessNumberGame.guess(inputNumber);

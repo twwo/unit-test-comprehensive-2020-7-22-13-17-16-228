@@ -43,7 +43,7 @@ public class GuessNumberGame {
 
     private boolean isValid(String inputNumber) {
         boolean isValid = true;
-        if (!inputNumber.matches("\\d")) {
+        if (!inputNumber.matches("-?[0-9]+(\\.[0-9]+)?")) {
             isValid = false;
         }
         if (inputNumber.length() != 4) {
