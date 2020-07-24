@@ -6,7 +6,7 @@ public class RandomAnswerGenerator implements AnswerGenerator {
 
     @Override
     public String generateAnswer() {
-        Random random = new Random();
+        Random random = new Random(System.currentTimeMillis());
         StringBuilder answer = new StringBuilder();
         do {
             String randomNumber = String.valueOf(random.nextInt(10));

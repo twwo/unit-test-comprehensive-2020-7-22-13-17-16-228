@@ -29,7 +29,7 @@ public class GuessNumberGame {
         int aCount = 0;
         int bCount = 0;
         char[] inputNumbers = inputNumber.toCharArray();
-        char[] answerNumbers = inputNumber.toCharArray();
+        char[] answerNumbers = answer.toCharArray();
         for (int pos = 0; pos < inputNumbers.length; pos++) {
             if (answerNumbers[pos] == inputNumbers[pos]) {
                 aCount++;
@@ -42,21 +42,23 @@ public class GuessNumberGame {
     }
 
     private boolean isValid(String inputNumber) {
-        boolean isValid = true;
-        if (!inputNumber.matches("-?[0-9]+(\\.[0-9]+)?")) {
-            isValid = false;
-        }
-        if (inputNumber.length() != 4) {
-            isValid = false;
-        } else {
-            for (char number : inputNumber.toCharArray()) {
-                if (inputNumber.indexOf(number) != inputNumber.lastIndexOf(number)) {
-                    isValid = false;
-                    break;
-                }
-            }
-        }
-        return isValid;
+        Validator validator = new InputNumberValidator(inputNumber);
+        return validator.validate();
+//        boolean isValid = true;
+//        if (!inputNumber.matches("-?[0-9]+(\\.[0-9]+)?")) {
+//            isValid = false;
+//        }
+//        if (inputNumber.length() != 4) {
+//            isValid = false;
+//        } else {
+//            for (char number : inputNumber.toCharArray()) {
+//                if (inputNumber.indexOf(number) != inputNumber.lastIndexOf(number)) {
+//                    isValid = false;
+//                    break;
+//                }
+//            }
+//        }
+//        return isValid;
     }
 
     private boolean isAnswerContains(char inputNumber) {
