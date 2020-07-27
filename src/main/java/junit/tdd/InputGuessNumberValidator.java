@@ -16,20 +16,25 @@ public class InputGuessNumberValidator implements Validator {
         if (!isAllNumber(inputGuessNumber)) {
             isValid = false;
         }
-        if (inputGuessNumber.length() != 4) {
+        if (!isFormatRight(inputGuessNumber)) {
             isValid = false;
-        } else {
-            for (char number : inputGuessNumber.toCharArray()) {
-                if (inputGuessNumber.indexOf(number) != inputGuessNumber.lastIndexOf(number)) {
-                    isValid = false;
-                    break;
-                }
-            }
         }
         return isValid;
     }
 
     private boolean isAllNumber(String numbers) {
         return numbers.matches(NUMBER_ONLY_PATTERN);
+    }
+
+    private boolean isFormatRight(String numbers) {
+        if (numbers.length() != 4) {
+            return false;
+        }
+        for (char number : numbers.toCharArray()) {
+            if (numbers.indexOf(number) != numbers.lastIndexOf(number)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
