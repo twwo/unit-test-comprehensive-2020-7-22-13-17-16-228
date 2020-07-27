@@ -18,19 +18,19 @@ public class GuessNumberGame {
         if (!isValid(inputGuessNumebr)) {
             return "Wrong Input,Input again";
         }
-        int aCount = 0;
-        int bCount = 0;
+        int positionRightAndNumberRightCount = 0;
+        int positionWrongAndNumberRightCount = 0;
         char[] inputNumbers = inputGuessNumebr.toCharArray();
         char[] answerNumbers = answer.toCharArray();
         for (int pos = 0; pos < inputNumbers.length; pos++) {
             if (answerNumbers[pos] == inputNumbers[pos]) {
-                aCount++;
+                positionRightAndNumberRightCount++;
             }
             else if (isAnswerContains(inputNumbers[pos])) {
-                bCount++;
+                positionWrongAndNumberRightCount++;
             }
         }
-        return aCount + "A" + bCount + "B";
+        return positionRightAndNumberRightCount + "A" + positionWrongAndNumberRightCount + "B";
     }
 
     private boolean isValid(String inputGuessNumber) {
