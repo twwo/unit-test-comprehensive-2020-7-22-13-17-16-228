@@ -2,6 +2,8 @@ package junit.tdd;
 
 public class InputGuessNumberValidator implements Validator {
 
+    private static final String NUMBER_ONLY_PATTERN = "-?[0-9]+(\\.[0-9]+)?";
+
     private String inputGuessNumber;
 
     public InputGuessNumberValidator(String inputGuessNumber) {
@@ -11,7 +13,7 @@ public class InputGuessNumberValidator implements Validator {
     @Override
     public boolean validate() {
         boolean isValid = true;
-        if (!inputGuessNumber.matches("-?[0-9]+(\\.[0-9]+)?")) {
+        if (!isAllNumber(inputGuessNumber)) {
             isValid = false;
         }
         if (inputGuessNumber.length() != 4) {
@@ -25,5 +27,9 @@ public class InputGuessNumberValidator implements Validator {
             }
         }
         return isValid;
+    }
+
+    private boolean isAllNumber(String numbers) {
+        return numbers.matches(NUMBER_ONLY_PATTERN);
     }
 }
