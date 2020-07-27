@@ -36,21 +36,6 @@ public class GuessNumberGame {
     private boolean isValid(String inputGuessNumber) {
         Validator validator = new InputNumberValidator(inputGuessNumber);
         return validator.validate();
-//        boolean isValid = true;
-//        if (!inputGuessNumber.matches("-?[0-9]+(\\.[0-9]+)?")) {
-//            isValid = false;
-//        }
-//        if (inputGuessNumber.length() != 4) {
-//            isValid = false;
-//        } else {
-//            for (char number : inputGuessNumber.toCharArray()) {
-//                if (inputGuessNumber.indexOf(number) != inputGuessNumber.lastIndexOf(number)) {
-//                    isValid = false;
-//                    break;
-//                }
-//            }
-//        }
-//        return isValid;
     }
 
     private boolean isAnswerContains(char inputNumber) {
