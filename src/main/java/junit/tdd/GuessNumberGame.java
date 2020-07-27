@@ -42,9 +42,9 @@ public class GuessNumberGame {
         return answer.indexOf(inputGuessNumberArrays) != -1;
     }
 
-    public List<String> play(List<String> inputNumberList) {
+    public List<String> play(List<String> inputGuessNumbers) {
         List<String> resultList = new ArrayList<>();
-        for (String inputNumber : inputNumberList) {
+        for (String inputNumber : inputGuessNumbers) {
             resultList.add(guess(inputNumber));
         }
         return resultList;
