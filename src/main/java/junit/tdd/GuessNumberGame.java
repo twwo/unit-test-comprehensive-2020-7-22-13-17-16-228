@@ -20,13 +20,13 @@ public class GuessNumberGame {
         }
         int positionRightAndNumberRightCount = 0;
         int positionWrongAndNumberRightCount = 0;
-        char[] inputNumbers = inputGuessNumebr.toCharArray();
+        char[] inputGuessNumberArrays = inputGuessNumebr.toCharArray();
         char[] answerNumbers = answer.toCharArray();
-        for (int pos = 0; pos < inputNumbers.length; pos++) {
-            if (answerNumbers[pos] == inputNumbers[pos]) {
+        for (int pos = 0; pos < inputGuessNumberArrays.length; pos++) {
+            if (answerNumbers[pos] == inputGuessNumberArrays[pos]) {
                 positionRightAndNumberRightCount++;
             }
-            else if (isAnswerContains(inputNumbers[pos])) {
+            else if (isAnswerContains(inputGuessNumberArrays[pos])) {
                 positionWrongAndNumberRightCount++;
             }
         }
@@ -38,8 +38,8 @@ public class GuessNumberGame {
         return validator.validate();
     }
 
-    private boolean isAnswerContains(char inputNumber) {
-        return answer.indexOf(inputNumber) != -1;
+    private boolean isAnswerContains(char inputGuessNumberArrays) {
+        return answer.indexOf(inputGuessNumberArrays) != -1;
     }
 
     public List<String> play(List<String> inputNumberList) {
