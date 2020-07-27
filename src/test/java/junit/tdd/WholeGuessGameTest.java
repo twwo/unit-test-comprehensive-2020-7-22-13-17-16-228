@@ -11,12 +11,10 @@ public class WholeGuessGameTest {
     @Test
     void should_return_sixth_answer_when_play_guessnumbergame_given_six_set_of_number() {
         //given
-        AnswerGenerator answerGenerator = new RandomAnswerGenerator();
-        String answer = answerGenerator.generateAnswer();
-        GuessNumberGame guessNumberGame = new GuessNumberGame(answer);
+        GuessNumberGame guessNumberGame = new GuessNumberGame(new RandomAnswerGenerator().generateAnswer());
         List<String> inputNumberList = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
-            inputNumberList.add(answerGenerator.generateAnswer());
+            inputNumberList.add("1234");
         }
 
         //when
