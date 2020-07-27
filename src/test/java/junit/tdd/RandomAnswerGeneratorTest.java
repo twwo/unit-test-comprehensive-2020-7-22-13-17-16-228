@@ -13,7 +13,7 @@ public class RandomAnswerGeneratorTest {
 
         //when
         String randomAnswer = answerGenerator.generateAnswer();
-        Validator validator = new InputNumberValidator(randomAnswer);
+        Validator validator = new InputGuessNumberValidator(randomAnswer);
 
         //then
         assertTrue(validator.validate());

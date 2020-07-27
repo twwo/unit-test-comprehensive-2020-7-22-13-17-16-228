@@ -34,7 +34,7 @@ public class GuessNumberGame {
     }
 
     private boolean isValid(String inputGuessNumber) {
-        Validator validator = new InputNumberValidator(inputGuessNumber);
+        Validator validator = new InputGuessNumberValidator(inputGuessNumber);
         return validator.validate();
     }
 

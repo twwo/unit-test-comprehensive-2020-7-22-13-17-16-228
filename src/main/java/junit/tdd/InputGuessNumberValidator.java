@@ -1,10 +1,10 @@
 package junit.tdd;
 
-public class InputNumberValidator implements Validator {
+public class InputGuessNumberValidator implements Validator {
 
     private String inputNumber;
 
-    public InputNumberValidator(String inputNumber) {
+    public InputGuessNumberValidator(String inputNumber) {
         this.inputNumber = inputNumber;
     }
 
